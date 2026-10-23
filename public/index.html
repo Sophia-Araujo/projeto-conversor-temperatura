@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Conversor de Temperatura</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 320px;
+      margin: 50px auto;
+      text-align: center;
+    }
+    input {
+      width: 100px;
+      margin: 5px;
+      padding: 5px;
+    }
+    button {
+      padding: 8px 16px;
+      margin: 5px;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Conversor de Temperatura</h1>
+
+  <input type="number" id="valor" placeholder="valor">
+  <br>
+  <button onclick="converter('celsius-para-fahrenheit')">°C → °F</button>
+  <button onclick="converter('fahrenheit-para-celsius')">°F → °C</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    async function converter(rota) {
+      const valor = document.getElementById('valor').value;
+      const resposta = await fetch(`/${rota}?valor=${valor}`);
+      const dados = await resposta.json();
+      document.getElementById('resultado').innerText = 'Resultado: ' + dados.resultado.toFixed(2);
+    }
+  </script>
+</body>
+</html>

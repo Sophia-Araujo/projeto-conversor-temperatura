@@ -1,0 +1,17 @@
+{
+  "name": "projeto-conversor-temperatura",
+  "version": "1.0.0",
+  "description": "Conversor de temperatura com testes unitários, de integração e de performance",
+  "scripts": {
+    "test:unit": "jest tests/unit",
+    "test:integration": "jest tests/integration",
+    "test:performance": "node tests/performance/performance.test.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
